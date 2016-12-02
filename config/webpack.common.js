@@ -39,10 +39,10 @@ module.exports = {
             loader: 'json-loader'
         }, {
             test   : /\.css$/,
-            loaders: ['style-loader', 'css-loader']
+            loaders: ['to-string-loader', 'css-loader']
         }, {
             test   : /\.scss$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader']
+            loaders: ['to-string-loader', 'css-loader', 'sass-loader']
         }, {
             test   : /\.html$/,
             loaders: ['raw-loader'],
@@ -62,8 +62,7 @@ module.exports = {
             name: ['vendor', 'polyfills']
         }),
         new CopyWebpackPlugin([{
-            from: 'src/pages',
-            to  : '/',
+            from: path.resolve(__dirname, '../src/pages'),
         }]),
         new HtmlWebpackPlugin({
             template      : 'src/index.ejs',

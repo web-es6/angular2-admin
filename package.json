@@ -67,6 +67,7 @@
     "source-map-loader": "^0.1.5",
     "string-replace-loader": "1.0.5",
     "style-loader": "^0.13.1",
+    "to-string-loader": "^1.1.5",
     "ts-helpers": "^1.1.2",
     "ts-node": "^1.7.0",
     "tslint": "^4.0.2",

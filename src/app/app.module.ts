@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home';
 import { NoContentComponent } from './component/no-content';
 import { Router } from './app.routes';
+import {WelcomeComponent} from "./component/welcome/welcome.component";
 
 @NgModule({
     imports: [
@@ -14,6 +15,7 @@ import { Router } from './app.routes';
         AppComponent,
         HomeComponent,
         NoContentComponent,
+        WelcomeComponent,
     ],
     bootstrap: [
         AppComponent,
