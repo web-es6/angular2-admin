@@ -20,15 +20,6 @@ const METADATA = webpackMerge(commonConfig.metadata, {
 module.exports = function() {
     return webpackMerge(commonConfig, {
         devtool: 'cheap-module-source-map',
-        output : {
-            path             : path.resolve(__dirname, '../dist'),
-            filename         : '[name].bundle.js',
-            sourceMapFilename: '[name].map',
-            chunkFilename    : '[id].chunk.js',
-            library          : 'ac_[name]',
-            libraryTarget    : 'var',
-        },
-
         plugins  : [
             new DefinePlugin({
                 'ENV'        : JSON.stringify(METADATA.ENV),

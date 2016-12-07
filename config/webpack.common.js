@@ -1,5 +1,6 @@
 const path                       = require('path');
 const webpack                    = require('webpack');
+const ExtractTextPlugin          = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin          = require('copy-webpack-plugin');
 const HtmlWebpackPlugin          = require('html-webpack-plugin');
 const CommonsChunkPlugin         = require('webpack/lib/optimize/CommonsChunkPlugin');
@@ -15,46 +16,66 @@ const METADATA = {
 };
 
 module.exports = {
+    output : {
+        path             : path.resolve(__dirname, '../dist'),
+        filename         : '[name].bundle.js',
+        sourceMapFilename: '[name].map',
+        chunkFilename    : '[id].chunk.js'
+    },
     entry  : {
-        'polyfills': './src/polyfills.browser.ts',
-        'vendor'   : './src/vendor.browser.ts',
-        'main'     : './src/main.browser.ts'
+        'polyfills': path.resolve(__dirname, '../src/polyfills.browser.ts'),
+        'vendor'   : path.resolve(__dirname, '../src/vendor.browser.ts'),
+        'main'     : path.resolve(__dirname, '../src/main.browser.ts'),
     },
     resolve: {
         extensions: ['.ts', '.js', '.json'],
         modules   : [path.resolve(__dirname, '../src'), 'node_modules'],
     },
-    module : {
+    module: {
         exprContextCritical: false,
-        rules              : [{
-            test   : /\.ts$/,
-            loaders: [
-                'awesome-typescript-loader',
-                'angular2-template-loader',
-                'angular2-router-loader',
-            ],
-            exclude: [/\.(spec|e2e)\.ts$/]
-        }, {
-            test  : /\.json$/,
-            loader: 'json-loader'
-        }, {
-            test   : /\.css$/,
-            loaders: ['to-string-loader', 'css-loader']
-        }, {
-            test   : /\.scss$/,
-            loaders: ['to-string-loader', 'css-loader', 'sass-loader']
-        }, {
-            test   : /\.html$/,
-            loaders: ['raw-loader'],
-        }, {
-            test  : /\.(jpg|jpeg|png|gif|svg)$/,
-            loader: 'url?limit=50000',
-        }, {
-            test  : /\.(woff|woff2|ttf)$/,
-            loader: 'file'
-        },
-        ],
-
+        rules              : [
+            // {
+            //     test   : /\.ts$/,
+            //     loader : 'tslint-loader',
+            //     exclude: /(node_modules)/,
+            //     enforce: 'pre'
+            // },
+            {
+                test   : /\.ts$/,
+                loaders: [
+                    'awesome-typescript-loader',
+                    'angular2-template-loader',
+                    'angular2-router-loader',
+                ],
+                exclude: [/\.(spec|e2e)\.ts$/]
+            }, {
+                test  : /\.json$/,
+                loader: 'json-loader'
+            }, {
+                test   : /\.scss$/,
+                loader : ExtractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader        : 'css-loader!sass-loader'
+                }),
+                exclude: [/[\/|\\]app[\/|\\]/]
+            }, {
+                test   : /\.css$/,
+                loaders: ['to-string-loader', 'css-loader'],
+                exclude: [/[\/|\\]assets[\/|\\]/]
+            }, {
+                test   : /\.scss$/,
+                loaders: ['to-string-loader', 'css-loader', 'sass-loader'],
+                exclude: [/[\/|\\]assets[\/|\\]/]
+            }, {
+                test   : /\.html$/,
+                loaders: ['html-loader'],
+            }, {
+                test  : /\.(jpg|jpeg|png|gif|svg)$/,
+                loader: 'url-loader?limit=50000',
+            }, {
+                test  : /\.(woff|woff2|ttf|eot)$/,
+                loader: 'file-loader'
+            }],
     },
 
     plugins: [
@@ -74,7 +95,7 @@ module.exports = {
         new ScriptExtHtmlWebpackPlugin({
             defaultAttribute: 'defer'
         }),
-
+        new ExtractTextPlugin("styles.bundle.css")
     ],
 
     node: {

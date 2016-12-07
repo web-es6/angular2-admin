@@ -1,0 +1,14 @@
+// bootstrap 常量定义
+$brand-primary: #23b7e5;
+$btn-border-radius-base: 2px;
+$btn-border-radius-large: 2px;
+$btn-border-radius-small: 2px;
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
+// bootstrap 样式覆盖
+.btn {
+  border: none !important;
+  box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+}
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";

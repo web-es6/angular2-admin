@@ -33,7 +33,10 @@
     "core-js": "^2.4.1",
     "ie-shim": "^0.1.0",
     "rxjs": "^5.0.0-rc.4",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "bootstrap-sass": "^3.3.7",
+    "ng2-bootstrap": "1.1.16",
+    "moment": "2.17.1"
   },
   "devDependencies": {
     "@types/core-js": "0.9.28",
@@ -51,8 +54,9 @@
     "css-loader": "^0.26.0",
     "exports-loader": "^0.6.3",
     "expose-loader": "^0.7.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "file-loader": "^0.9.0",
+    "html-loader": "0.4.4",
     "html-webpack-plugin": "^2.24.1",
     "imports-loader": "^0.6.5",
     "json-loader": "^0.5.4",

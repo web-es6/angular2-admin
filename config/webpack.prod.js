@@ -1,10 +1,9 @@
-const path         = require('path');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
 
-const DedupePlugin        = require('webpack/lib/optimize/DedupePlugin');
 const DefinePlugin        = require('webpack/lib/DefinePlugin');
 const IgnorePlugin        = require('webpack/lib/IgnorePlugin');
+const NamedModulesPlugin  = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ProvidePlugin       = require('webpack/lib/ProvidePlugin');
 const UglifyJsPlugin      = require('webpack/lib/optimize/UglifyJsPlugin');
@@ -22,16 +21,9 @@ const METADATA = webpackMerge(commonConfig.metadata, {
 
 module.exports = function() {
     return webpackMerge(commonConfig, {
-        devtool: 'source-map',
-        output : {
-            path             : path.resolve(__dirname, '../dist'),
-            filename         : '[name].[chunkhash].bundle.js',
-            sourceMapFilename: '[name].[chunkhash].bundle.map',
-            chunkFilename    : '[id].[chunkhash].chunk.js'
-        },
         plugins: [
             new WebpackMd5Hash(),
-            new DedupePlugin(),
+            new NamedModulesPlugin(),
             // NOTE: when adding more properties make sure you include them in custom-typings.d.ts
             new DefinePlugin({
                 'ENV'        : JSON.stringify(METADATA.ENV),
@@ -46,7 +38,7 @@ module.exports = function() {
                 beautify: false,
                 mangle  : {
                     screw_ie8  : true,
-                    keep_fnames: true
+                    keep_fnames: false,
                 },
                 compress: {
                     screw_ie8: true
@@ -55,12 +47,8 @@ module.exports = function() {
             }),
             new LoaderOptionsPlugin({
                 debug  : false,
+                minimize: true,
                 options: {
-                    tslint    : {
-                        emitErrors  : true,
-                        failOnHint  : true,
-                        resourcePath: 'src'
-                    },
                     htmlLoader: {
                         minimize             : true,
                         removeAttributeQuotes: false,
@@ -71,20 +59,11 @@ module.exports = function() {
                             [/\[?\(?/, /(?:)/]
                         ],
                         customAttrAssign     : [/\)?\]?=/]
-                    },
-
+                    }
                 }
             }),
 
-        ],
-        node   : {
-            global        : true,
-            crypto        : 'empty',
-            process       : false,
-            module        : false,
-            clearImmediate: false,
-            setImmediate  : false
-        }
+        ]
 
     });
 };
