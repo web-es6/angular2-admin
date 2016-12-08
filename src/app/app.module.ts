@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Router } from './app.routes';
 import { MainComponent } from './component/main';
 import { HomeComponent } from './component/home';
 import { NoContentComponent } from './component/no-content';
-import { Router } from './app.routes';
 import { WelcomeComponent } from "./component/welcome/welcome.component";
-import { ToggleClassDirective } from './directive';
+import { AppDirectiveModule } from './directive';
 
 @NgModule({
     imports: [
+        Router,
         BrowserModule,
-        Router
+        AppDirectiveModule
     ],
     declarations: [
         MainComponent,
         HomeComponent,
         NoContentComponent,
-        WelcomeComponent,
-        ToggleClassDirective
+        WelcomeComponent
     ],
     bootstrap: [
         MainComponent,

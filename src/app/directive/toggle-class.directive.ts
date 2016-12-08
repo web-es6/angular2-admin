@@ -1,6 +1,5 @@
-import { Directive, ElementRef, Input, Renderer, HostListener, Injectable } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer, HostListener } from '@angular/core';
 
-@Injectable()
 @Directive({
     selector: '[toggleClass]'
 })
