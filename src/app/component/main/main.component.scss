@@ -1,0 +1,93 @@
+@import '../../../assets/style/variables';
+.admin-app {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.app-navbar {
+  background-color: #FFF;
+  width: 100%;
+  border: none;
+
+  .navbar-nav {
+    a {
+      color: #363f44;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    li a {
+      &:hover, &.focus {
+        background-color: #f3f5f5;
+      }
+    }
+  }
+
+  .navbar-brand {
+    color: #c4d0d9;
+  }
+
+  .navbar-collapse {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-form {
+    button[type="submit"] {
+      border: 1px solid #edf1f2;
+      outline: 0 !important;
+    }
+  }
+
+  .thumb-sm img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  .avatar {
+    display: inline-block;
+    width: 40px;
+    position: relative;
+    white-space: nowrap;
+    border-radius: 500px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    margin-left: 10px;
+
+    img {
+      width: 100%;
+      border-radius: 500px;
+    }
+
+    i {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #FFF;
+      border-radius: 100%;
+      background-color: #27c24c;
+    }
+  }
+}
+
+.bg-black {
+  color: #7793a7;
+  background-color: #1c2b36;
+}
+
+@media (min-width: $grid-float-breakpoint) {
+  .app-aside,
+  .navbar-header {
+    width: 200px;
+  }
+}
+
+@media (max-width: $grid-float-breakpoint-max) {
+  .navbar-header {
+    width: 100%;
+  }
+}

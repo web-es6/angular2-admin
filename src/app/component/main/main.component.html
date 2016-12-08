@@ -1,0 +1,92 @@
+<div class="admin-app">
+    <nav class="navbar navbar-fixed-top app-navbar">
+        <div>
+            <div class="{{app.settings.navbarHeaderColor}} navbar-header clearfix">
+                <div class="btn-group pull-right visible-xs navbar-btn m-r-10">
+                    <button class="btn btn-default">
+                        <i class="glyphicon glyphicon-cog"></i>
+                    </button>
+                    <button class="btn btn-default">
+                        <i class="glyphicon glyphicon-align-justify"></i>
+                    </button>
+                </div>
+                <!-- brand -->
+                <a href="#/" class="navbar-brand">
+                    <i class="fa fa-btc"></i>
+                    <span class="m-l-xs">{{app.name}}</span>
+                </a>
+                <!-- / brand -->
+            </div>
+
+            <div class="collapse navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+                <!-- buttons -->
+                <div class="nav navbar-nav hidden-xs">
+                    <a href class="btn no-shadow navbar-btn" (click)="app.settings.asideFolded = !app.settings.asideFolded">
+                        <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
+                    </a>
+                    <a href class="btn no-shadow navbar-btn">
+                        <i class="fa fa-user-o fa-fw"></i>
+                    </a>
+                </div>
+                <!-- / buttons -->
+
+                <!-- link and dropdown -->
+                <ul class="nav navbar-nav hidden-sm">
+                    <li class="dropdown pos-stc" dropdown>
+                        <a href class="dropdown-toggle">
+                            <span>Mega</span>
+                            <span class="caret"></span>
+                        </a>
+                    </li>
+                    <li class="dropdown" dropdown>
+                        <a href class="dropdown-toggle">
+                            <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+                            <span>New</span> <span class="caret"></span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- / link and dropdown -->
+
+                <!-- search form -->
+                <form class="navbar-form navbar-form-sm navbar-left">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm bg-light no-border no-shadow rounded" placeholder="Search projects..."/>
+                            <span class="input-group-btn">
+                        <button type="submit" class="btn btn-sm bg-light no-shadow rounded"><i class="fa fa-search"></i></button>
+                    </span>
+                        </div>
+                    </div>
+                </form>
+                <!-- / search form -->
+
+                <!-- nabar right -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden-xs">
+                        <a ui-fullscreen></a>
+                    </li>
+                    <li class="dropdown" dropdown>
+                        <a href class="dropdown-toggle" dropdown-toggle>
+                            <i class="fa fa-bell-o fa-fw"></i>
+                            <span class="visible-xs-inline">Notifications</span>
+                            <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
+                        </a>
+                    </li>
+                    <li class="dropdown" dropdown>
+                        <a href class="dropdown-toggle clear" dropdown-toggle>
+              <span class="avatar pull-right">
+                <img src="./a0.jpg" alt="...">
+                <i></i>
+              </span>
+                            <span class="hidden-sm">John.Smith</span> <b class="caret"></b>
+                        </a>
+                    </li>
+                </ul>
+                <!-- / navbar right -->
+            </div>
+        </div>
+    </nav>
+
+
+    <router-outlet></router-outlet>
+</div>

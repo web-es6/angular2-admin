@@ -1,0 +1,15 @@
+// bootstrap 常量定义
+@import 'variables';
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+// bootstrap 样式覆盖
+.btn {
+  border: none;
+  box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+}
+
+.btn-default {
+  border: 1px solid #EEE;
+}

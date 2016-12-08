@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'no-content',
   template: `
     <div>
-      <h1>404: page missing</h1>
+      <b>404: page missing</b>
       <a routerLink="/home">Home</a>
     </div>
   `

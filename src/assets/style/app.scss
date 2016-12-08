@@ -1,7 +1,77 @@
-@import 'bootstrap_custom';
+@import 'bootstrap';
+@import 'font-awesome';
 
 body {
-  background-color: #f0f3f4 !important;
+  background-color: #f0f3f4;
   margin: 0;
-  padding: 0;
+  padding: 50px 0 0 0;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.rounded {
+  border-radius: 500px;
+}
+
+.bg-light {
+  color: #58666e;
+  background-color: #edf1f2;
+}
+
+.badge {
+  &.up {
+    position: relative;
+    top: -10px;
+    padding: 3px 6px;
+    margin-left: -10px;
+  }
+
+  &.bg-danger {
+    color: #ffffff;
+    background-color: #f05050;
+  }
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// margin variants
+@each $size in 0 1 2 3 4 5 6 7 8 9 10 {
+  .m-#{$size*5} {
+    margin: $size*5px;
+  }
+
+  @each $side in (l, left) (r, right) (t, top) (b, bottom) {
+    .m-#{nth($side,1)}-#{$size*5} {
+      margin-#{nth($side,2)}: $size*5px;
+    }
+  }
+}
+
+
+// padding variants
+@each $size in 0 1 2 3 4 5 6 7 8 9 10 {
+  .p-#{$size*5} {
+    padding: $size*5px;
+  }
+
+  @each $side in (l, left) (r, right) (t, top) (b, bottom) {
+    .p-#{nth($side,1)}-#{$size*5} {
+      padding-#{nth($side,2)}: $size*5px;
+    }
+  }
 }
