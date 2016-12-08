@@ -35,8 +35,8 @@
     "rxjs": "^5.0.0-rc.4",
     "zone.js": "^0.7.2",
     "moment": "2.17.1",
-    "bootstrap-sass": "^3.3.7",
-    "ng2-bootstrap": "^1.1.16",
+    "bootstrap": "^4.0.0-alpha.5",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.14",
     "font-awesome": "^4.7.0 "
   },
   "devDependencies": {
