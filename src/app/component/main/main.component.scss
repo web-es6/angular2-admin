@@ -1,7 +1,9 @@
 @import '../../../assets/style/variables';
+
 .admin-app {
   position: relative;
   width: 100%;
+  padding-top: $app-nav-height;
   height: auto;
   min-height: 100%;
 }
@@ -9,7 +11,7 @@
 .app-navbar {
   background-color: #FFF;
   width: 100%;
-  height: 50px;
+  height: $app-nav-height;
   border: none;
   font-size: 14px;
   padding: 0;
@@ -21,7 +23,10 @@
     a.navbar-brand {
       color: #c4d0d9;
       padding: 0 0 0 10px;
-      line-height: 50px;
+      line-height: $app-nav-height;
+      height: $app-nav-height;
+      text-align: center;
+      overflow: hidden;
     }
     button {
       border-width: 0;
@@ -35,6 +40,10 @@
   .app-navbar-nav {
     width: 100%;
     height: 100%;
+    padding-left: $aside-width;
+    &.aside-folded {
+      padding-left: $aside-folded-width;
+    }
     .navbar-nav-wrapper {
       width: 100%;
       height: 100%;
@@ -48,7 +57,7 @@
       text-decoration: none;
       cursor: pointer;
       padding: 0 5px;
-      line-height: 50px;
+      line-height: $app-nav-height;
 
       &.nav-link:hover, &.nav-link:focus {
         background-color: #f3f5f5;
@@ -108,17 +117,33 @@
   }
 }
 
-.bg-black {
-  color: #7793a7;
-  background-color: #1c2b36;
+.nav-aside {
+  width: $aside-width;
+  position: fixed;
+  top: $app-nav-height;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: hidden;
+  &.folded {
+    width: $aside-folded-width;
+  }
+}
+
+.app-content {
+  margin-left: $aside-width;
+  &.aside-folded {
+    margin-left: $aside-folded-width;
+  }
 }
 
 @media (min-width: $grid-float-breakpoint) {
   .navbar-header {
-    width: 200px;
-  }
-  .app-navbar-nav {
-    padding-left: 200px;
+    width: $aside-width;
+    &.folded, &.folded .navbar-brand {
+      width: $aside-folded-width;
+      padding: 0 !important;
+    }
   }
 
 }
@@ -126,5 +151,55 @@
 @media (max-width: $grid-float-breakpoint-max) {
   .navbar-header {
     width: 100%;
+  }
+}
+
+// side menu
+
+.nav-aside {
+  ul.nav {
+    li {
+      display: block;
+      position: relative;
+      li {
+        a {
+          padding-left: $app-aside-nav-height + 15px;
+        }
+        ul{
+          display:none;
+        }
+        &.active > ul{
+          display:block;
+        }
+      }
+      a {
+        font-weight: normal;
+        text-transform: none;
+        display: block;
+        line-height: $app-aside-nav-height;
+        position: relative;
+        transition: background-color .2s ease-in-out 0s;
+        .badge,
+        .label {
+          font-size: 11px;
+          padding: 2px 5px;
+          margin-top: 2px;
+        }
+        > i {
+          margin: 10px;
+          line-height: $app-aside-nav-height;
+          width: $app-aside-nav-height;
+          float: left;
+          margin-right: 5px;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          &:before {
+            position: relative;
+            z-index: 2;
+          }
+        }
+      }
+    }
   }
 }

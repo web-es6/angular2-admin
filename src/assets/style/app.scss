@@ -4,7 +4,7 @@
 body {
   background-color: #f0f3f4;
   margin: 0;
-  padding: 50px 0 0 0;
+  padding: 0;
   position: relative;
 }
 
@@ -27,6 +27,11 @@ body {
 .bg-light {
   color: #58666e;
   background-color: #edf1f2;
+}
+
+.bg-black {
+  color: #7793a7;
+  background-color: #1c2b36;
 }
 
 .badge {

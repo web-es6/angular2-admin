@@ -4,7 +4,8 @@ import { MainComponent } from './component/main';
 import { HomeComponent } from './component/home';
 import { NoContentComponent } from './component/no-content';
 import { Router } from './app.routes';
-import {WelcomeComponent} from "./component/welcome/welcome.component";
+import { WelcomeComponent } from "./component/welcome/welcome.component";
+import { ToggleClassDirective } from './directive';
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import {WelcomeComponent} from "./component/welcome/welcome.component";
         HomeComponent,
         NoContentComponent,
         WelcomeComponent,
+        ToggleClassDirective
     ],
     bootstrap: [
         MainComponent,

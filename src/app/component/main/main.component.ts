@@ -4,7 +4,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
     moduleId   : module.id,
     selector   : 'app',
     styleUrls  : ['./main.component.scss'],
-    templateUrl: './main.component.html'
+    templateUrl: './main.component.html',
 })
 export class MainComponent {
     app = {
