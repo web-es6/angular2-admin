@@ -87,37 +87,19 @@
 
     <nav class="nav-aside bg-black" [class.folded]="app.settings.asideFolded">
         <ul class="nav">
-            <li>
-                <a href class="dropdown-toggle nav-link">
-                    <i class="fa fa-bell-o fa-fw pos-relative">
-                        <span class="tag tag-pill tag-primary badge">2</span>
-                    </i>
-                    <span>&nbsp;Notifications</span>
-                </a>
-            </li>
-            <li>
-                <a href>
-                    <span class="hidden-sm">John.Smith</span><b class="caret"></b>
-                </a>
-            </li>
-            <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+            <li class="hidden-folded text-muted small">
                 <span>Navigation</span>
             </li>
             <li toggleClass="active">
-                <a href="javascript:void(0)" class="auto">
-                    <span class="pull-right text-muted">
-                        <i class="fa fa-fw fa-angle-right text"></i>
-                        <i class="fa fa-fw fa-angle-down text-active"></i>
+                <span class="nav-item">
+                    <span class="pull-right text-muted hidden-folded">
+                        <i class="fa fa-fw fa-angle-right icon-collapsed"></i>
+                        <i class="fa fa-fw fa-angle-down icon-expanded"></i>
                     </span>
-                    <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
-                    <span class="font-bold" translate="aside.nav.DASHBOARD">Dashboard</span>
-                </a>
-                <ul class="nav nav-sub dk">
-                    <li class="nav-sub-header">
-                        <a href>
-                            <span translate="aside.nav.DASHBOARD">Dashboard</span>
-                        </a>
-                    </li>
+                    <i class="fa fa-th"></i>
+                    <span class="hidden-folded">Dashboard</span>
+                </span>
+                <ul class="nav nav-sub">
                     <li ui-sref-active="active">
                         <a ui-sref="app.dashboard-v1">
                             <span>Dashboard v1</span>
@@ -125,7 +107,6 @@
                     </li>
                     <li ui-sref-active="active">
                         <a ui-sref="app.dashboard-v2">
-                            <b class="label bg-info pull-right">N</b>
                             <span>Dashboard v2</span>
                         </a>
                     </li>
