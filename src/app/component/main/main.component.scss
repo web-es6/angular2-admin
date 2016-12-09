@@ -183,14 +183,18 @@
   bottom: 0;
   left: 0;
   z-index: 1000;
-  overflow: hidden;
+  font-size: 14px;
   &.folded {
     width: $aside-folded-width;
   }
 
+  li {
+    position: relative;
+  }
+
   > ul.nav {
     > li {
-      padding: 0 10px;
+      padding: 0 5px;
       line-height: $app-aside-nav-height;
       > .nav-item {
         display: block;
@@ -199,15 +203,24 @@
         > i {
           width: $app-aside-nav-height;
           text-align: center;
+          font-size: 18px;
         }
         .icon-expanded {
           display: none;
         }
       }
     }
-    > li.active {
-      background-color: #131e26;
-      .nav-sub {
+    > li.separator {
+      height: 2px;
+      margin: 5px 0;
+      background: $bg-black-dk;
+    }
+    > li.active .nav-item, > li > .nav-item:hover {
+      background: $bg-black-dk;
+    }
+    > li > .nav-item.active {
+      background-color: $bg-black-dk;
+      & + .nav-sub {
         opacity: 1;
         margin-left: 0;
         height: auto !important;
@@ -222,12 +235,35 @@
     }
   }
 
-  &.folded  {
+  &.folded {
     .hidden-folded, .nav-sub {
       display: none;
     }
     > ul > li {
       line-height: $app-aside-folded-nav-height;
+
+      .nav-item .fa {
+        width: 50px;
+      }
+    }
+
+    li.focus {
+      background-color: $bg-black-dk;
+      > ul {
+        display: block !important;
+        position: absolute;
+        left: $aside-folded-width;
+        top: 0;
+        z-index: 2000;
+        opacity: 1;
+        margin-left: 0;
+        height: auto !important;
+        overflow: auto;
+        > li > a {
+          padding: 0 20px;
+          display: inline-block;
+        }
+      }
     }
   }
 }
@@ -237,9 +273,11 @@
   margin-left: -20px;
   overflow: hidden;
   opacity: 0;
+  background-color: $bg-black-dk;
   transition: all 0.2s ease-in-out 0s;
 
   a {
-    padding-left: $app-aside-nav-height + 15px;
+    padding-left: $app-aside-nav-height;
+    white-space: nowrap;
   }
 }

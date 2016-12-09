@@ -88,29 +88,77 @@
     <nav class="nav-aside bg-black" [class.folded]="app.settings.asideFolded">
         <ul class="nav">
             <li class="hidden-folded text-muted small">
-                <span>Navigation</span>
+                <span>Dashboard</span>
             </li>
-            <li toggleClass="active">
-                <span class="nav-item">
+            <li focusClass="focus" routerLinkActive="active">
+                <span class="nav-item" toggleClass="active">
                     <span class="pull-right text-muted hidden-folded">
                         <i class="fa fa-fw fa-angle-right icon-collapsed"></i>
                         <i class="fa fa-fw fa-angle-down icon-expanded"></i>
                     </span>
-                    <i class="fa fa-th"></i>
-                    <span class="hidden-folded">Dashboard</span>
+                    <i class="fa fa-truck text-primary"></i><span class="hidden-folded">车辆管理</span>
                 </span>
                 <ul class="nav nav-sub">
-                    <li ui-sref-active="active">
-                        <a ui-sref="app.dashboard-v1">
+                    <li>
+                        <a routerLink="/no-content">
                             <span>Dashboard v1</span>
                         </a>
                     </li>
-                    <li ui-sref-active="active">
+                    <li>
                         <a ui-sref="app.dashboard-v2">
                             <span>Dashboard v2</span>
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li focusClass="focus">
+                <span class="nav-item" toggleclass="active">
+                    <i class="fa fa-users text-success"></i><span class="hidden-folded">司机管理</span>
+                </span>
+            </li>
+            <li focusClass="focus">
+                <span class="nav-item" toggleclass="active">
+                    <i class="fa fa-address-card-o text-info"></i><span class="hidden-folded">信息部管理</span>
+                </span>
+            </li>
+            <li class="separator"></li>
+            <li class="hidden-folded text-muted small">
+                <span>Management</span>
+            </li>
+            <li focusClass="focus" routerLinkActive="active">
+                <span class="nav-item" toggleClass="active">
+                    <span class="pull-right text-muted hidden-folded">
+                        <i class="fa fa-fw fa-angle-right icon-collapsed"></i>
+                        <i class="fa fa-fw fa-angle-down icon-expanded"></i>
+                    </span>
+                    <i class="fa fa-sitemap text-warning"></i><span class="hidden-folded">部门管理</span>
+                </span>
+                <ul class="nav nav-sub">
+                    <li>
+                        <a routerLink="/home">
+                            <span>Dashboard v1</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="app.dashboard-v2">
+                            <span>Dashboard v2</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li focusClass="focus">
+                <span class="nav-item" toggleclass="active">
+                    <i class="fa fa-address-book-o text-danger"></i><span class="hidden-folded">员工管理</span>
+                </span>
+            </li>
+            <li class="separator"></li>
+            <li class="hidden-folded text-muted small">
+                <span>About me</span>
+            </li>
+            <li focusClass="focus">
+                <span class="nav-item" toggleclass="active">
+                    <i class="fa fa-user-o text-primary"></i><span class="hidden-folded">我的帐户</span>
+                </span>
             </li>
         </ul>
     </nav>

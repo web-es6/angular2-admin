@@ -1,4 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core';
+import AST_Node = UglifyJS.AST_Node;
 
 @Component({
     moduleId   : module.id,
@@ -33,6 +34,9 @@ export class MainComponent {
             container          : false
         }
     };
+    activeItem: string;
 
-
+    toggleActiveItem(item: string) {
+        this.activeItem = item;
+    }
 }
