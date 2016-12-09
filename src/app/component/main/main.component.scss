@@ -194,7 +194,7 @@
 
   > ul.nav {
     > li {
-      padding: 0 5px;
+      padding: 0 10px;
       line-height: $app-aside-nav-height;
       > .nav-item {
         display: block;
@@ -240,6 +240,7 @@
       display: none;
     }
     > ul > li {
+      padding: 0 5px;
       line-height: $app-aside-folded-nav-height;
 
       .nav-item .fa {
