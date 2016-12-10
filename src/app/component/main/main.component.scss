@@ -194,7 +194,7 @@
 
   > ul.nav {
     > li {
-      padding: 0 10px;
+      padding: 0 0 0 10px;
       line-height: $app-aside-nav-height;
       > .nav-item {
         display: block;
@@ -207,6 +207,9 @@
         }
         .icon-expanded {
           display: none;
+        }
+        .pull-right {
+          margin-right: 10px;
         }
       }
     }
@@ -222,9 +225,11 @@
       background-color: $bg-black-dk;
       & + .nav-sub {
         opacity: 1;
-        margin-left: 0;
         height: auto !important;
         overflow: auto;
+        li {
+          margin-left: 0;
+        }
       }
       .icon-collapsed {
         display: none !important;
@@ -261,9 +266,12 @@
         margin-left: 0;
         height: auto !important;
         overflow: auto;
-        > li > a {
-          padding: 0 20px;
-          display: inline-block;
+        > li {
+          margin-left: 0;
+          > a {
+            padding: 0 20px;
+            display: inline-block;
+          }
         }
       }
     }
@@ -272,11 +280,14 @@
 
 .nav-sub {
   height: 0;
-  margin-left: -20px;
   overflow: hidden;
   opacity: 0;
   background-color: $bg-black-dk;
-  transition: all 0.2s ease-in-out 0s;
+
+  li {
+    margin-left: -30px;
+    transition: all 0.2s ease-in-out 0s;
+  }
 
   a {
     padding-left: $app-aside-nav-height;
