@@ -13,6 +13,7 @@
     position: absolute;
     z-index: 100;
     a.navbar-brand {
+      width: $aside-width;
       color: #c4d0d9;
       padding: 0 0 0 10px;
       line-height: $app-nav-height;
@@ -44,6 +45,10 @@
   }
 
   .navbar-nav {
+    .btn {
+      padding: 0 15px;
+      border: none;
+    }
     a {
       color: #363f44;
       text-decoration: none;
@@ -51,7 +56,7 @@
       padding: 0 5px;
       line-height: $app-nav-height;
 
-      &.nav-link:hover, &.nav-link:focus {
+      &:hover {
         background-color: #f3f5f5;
       }
     }
@@ -113,7 +118,7 @@
   .navbar-header {
     width: $aside-width;
     &.folded, &.folded .navbar-brand {
-      width: $aside-folded-width;
+      width: $aside-folded-width !important;
       padding: 0 !important;
     }
   }
@@ -122,6 +127,9 @@
 @media (max-width: $grid-float-breakpoint-max) {
   .navbar-header {
     width: 100%;
+    > .navbar-brand {
+      width: auto !important;
+    }
   }
 }
 
@@ -129,8 +137,11 @@
   .navbar-header {
     width: $aside-folded-width;
     .navbar-brand {
-      width: $aside-folded-width;
+      width: $aside-folded-width !important;
       padding: 0 !important;
+      .title {
+        display: none;
+      }
     }
   }
   .app-navbar-nav {

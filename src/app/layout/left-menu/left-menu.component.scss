@@ -17,6 +17,14 @@
     position: relative;
   }
 
+  a {
+    text-decoration: none;
+    color: #7793a7;
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
   > ul.nav {
     > li {
       padding: 0 0 0 10px;
@@ -41,13 +49,13 @@
     > li.separator {
       height: 2px;
       margin: 5px 0;
-      background: $bg-black-dk;
+      background: $bg-black-darker;
     }
-    > li.active .nav-item, > li > .nav-item:hover {
-      background: $bg-black-dk;
+    > li.active .nav-item, > li.current .nav-item, > li > .nav-item:hover {
+      background: $bg-black-darker;
     }
     > li > .nav-item.active {
-      background-color: $bg-black-dk;
+      background-color: $bg-black-darker;
       & + .nav-sub {
         opacity: 1;
         height: auto !important;
@@ -79,7 +87,7 @@
     }
 
     li.focus {
-      background-color: $bg-black-dk;
+      background-color: $bg-black-darker;
       > ul {
         min-width: 200px;
         display: block !important;
@@ -107,7 +115,7 @@
   height: 0;
   overflow: hidden;
   opacity: 0;
-  background-color: $bg-black-dk;
+  background-color: $bg-black-darker;
 
   li {
     margin-left: -30px;

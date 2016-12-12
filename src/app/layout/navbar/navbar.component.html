@@ -10,17 +10,17 @@
         </div>
         <a href="#/" class="navbar-brand">
             <i class="fa fa-btc"></i>
-            <span class="m-l-xs">则一货运</span>
+            <span *ngIf="!leftMenuFolded" class="title">则一货运</span>
         </a>
     </div>
 
     <div class="clearfix app-navbar-nav hidden-sm-down" [class.aside-folded]="leftMenuFolded">
         <div class="navbar-nav-wrapper">
-            <div class="nav navbar-nav pull-left">
-                    <span class="btn no-shadow navbar-btn" (click)="toggleLeftMenuFolded()">
-                        <i class="fa fa-fw" [ngClass]="{'fa-indent': leftMenuFolded, 'fa-dedent': !leftMenuFolded}"></i>
-                    </span>
-                <a href class="btn no-shadow navbar-btn">
+            <div class="nav navbar-nav pull-left m-l-15">
+                <a href="javascript:void(0)" class="btn" (click)="toggleLeftMenuFolded()">
+                    <i class="fa fa-fw" [ngClass]="{'fa-indent': leftMenuFolded, 'fa-dedent': !leftMenuFolded}"></i>
+                </a>
+                <a href="javascript:void(0)" class="btn">
                     <i class="fa fa-user-o fa-fw"></i>
                 </a>
             </div>
@@ -29,14 +29,14 @@
             <!-- link and dropdown -->
             <ul class="nav navbar-nav hidden-md-down pull-left">
                 <li class="dropdown nav-item" dropdown>
-                    <a href class="nav-link dropdown-toggle">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle">
                         <span>Mega</span>
                         <span class="caret"></span>
                     </a>
                 </li>
                 <li class="dropdown nav-item" dropdown>
-                    <a href class="nav-link dropdown-toggle">
-                        <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle">
+                        <i class="fa fa-fw fa-plus"></i>
                         <span>New</span> <span class="caret"></span>
                     </a>
                 </li>
@@ -58,8 +58,10 @@
 
             <!-- nabar right -->
             <ul class="nav navbar-nav pull-right hidden-sm-down m-r-15">
-                <li class="nav-item">
-                    <a ui-fullscreen></a>
+                <li class="nav-item" *ngIf="screenfullEnabled">
+                    <a href="javascript:void(0)" class="btn" (click)="toggleFullScreen()">
+                        <i class="fa fa-fw" [ngClass]="{'fa-expand': !isFullScreen, 'fa-compress': isFullScreen}"></i>
+                    </a>
                 </li>
                 <li class="dropdown nav-item" dropdown>
                     <a href class="dropdown-toggle nav-link" dropdown-toggle>

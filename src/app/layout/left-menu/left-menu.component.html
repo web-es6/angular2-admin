@@ -48,14 +48,14 @@
         <li class="hidden-folded text-muted small">
             <span>Management</span>
         </li>
-        <li focusClass="focus" routerLinkActive="active">
-                <span class="nav-item" toggleClass="active">
-                    <span class="pull-right text-muted hidden-folded">
-                        <i class="fa fa-fw fa-angle-right icon-collapsed"></i>
-                        <i class="fa fa-fw fa-angle-down icon-expanded"></i>
-                    </span>
-                    <i class="fa fa-sitemap text-primary"></i><span class="hidden-folded">部门管理</span>
+        <li focusClass="focus" routerLinkActive="current">
+            <a routerLink="/web/department" class="nav-item" toggleClass="active">
+                <span class="pull-right text-muted hidden-folded">
+                    <i class="fa fa-fw fa-angle-right icon-collapsed"></i>
+                    <i class="fa fa-fw fa-angle-down icon-expanded"></i>
                 </span>
+                <i class="fa fa-sitemap text-primary"></i><span class="hidden-folded">部门管理</span>
+            </a>
             <ul class="nav nav-sub">
                 <li>
                     <a routerLink="/web/home">

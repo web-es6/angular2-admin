@@ -1,7 +1,7 @@
 @import 'bootstrap';
 @import 'font-awesome';
 
-body {
+html, body {
   background-color: #f0f3f4;
   margin: 0;
   padding: 0;
@@ -26,12 +26,20 @@ body {
 
 .bg-light {
   color: #58666e;
-  background-color: #edf1f2;
+  background-color: $bg-light;
+}
+
+.bg-lighter {
+  background-color: $bg-lighter;
 }
 
 .bg-black {
   color: #7793a7;
   background-color: $bg-black;
+}
+
+.bg-blacker {
+  background-color: $bg-black-darker;
 }
 
 .badge {
@@ -76,5 +84,12 @@ body {
     .p-#{nth($side,1)}-#{$size*5} {
       padding-#{nth($side,2)}: $size*5px;
     }
+  }
+}
+
+// border
+@each $side in (a, '') (l, '-left') (r, '-right') (t, '-top') (b, '-bottom') {
+  .b-#{nth($side,1)} {
+    border#{nth($side,2)}: 1px solid $color-border-light;
   }
 }
