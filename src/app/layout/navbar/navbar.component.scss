@@ -1,0 +1,140 @@
+@import '../../../assets/style/variables';
+
+.app-navbar {
+  background-color: #FFF;
+  width: 100%;
+  height: $app-nav-height;
+  border: none;
+  font-size: 14px;
+  padding: 0;
+
+  .navbar-header {
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    a.navbar-brand {
+      color: #c4d0d9;
+      padding: 0 0 0 10px;
+      line-height: $app-nav-height;
+      height: $app-nav-height;
+      text-align: center;
+      overflow: hidden;
+    }
+    button {
+      border-width: 0;
+      padding: 5px 10px;
+      & + button {
+        border-left-width: 1px;
+      }
+    }
+  }
+
+  .app-navbar-nav {
+    width: 100%;
+    height: 100%;
+    padding-left: $aside-width;
+    &.aside-folded {
+      padding-left: $aside-folded-width;
+    }
+    .navbar-nav-wrapper {
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  .navbar-nav {
+    a {
+      color: #363f44;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 0 5px;
+      line-height: $app-nav-height;
+
+      &.nav-link:hover, &.nav-link:focus {
+        background-color: #f3f5f5;
+      }
+    }
+  }
+
+  form.form-inline {
+    margin-top: 10px;
+    .input-group-addon {
+      border: none;
+      padding: 0;
+    }
+    input:focus {
+      background: #edf1f2;
+    }
+    button {
+      border: none;
+      outline: 0 !important;
+      background: #edf1f2;
+    }
+    input, button {
+      padding: 5px 15px;
+      font-size: 14px;
+      height: 30px;
+    }
+  }
+
+  .thumb-sm img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  .avatar {
+    display: inline-block;
+    width: 40px;
+    position: relative;
+    white-space: nowrap;
+    border-radius: 500px;
+
+    img {
+      width: 100%;
+      border-radius: 500px;
+    }
+
+    i {
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #FFF;
+      border-radius: 100%;
+      background-color: #27c24c;
+    }
+  }
+}
+
+@media (min-width: $screen-sm-max) {
+  .navbar-header {
+    width: $aside-width;
+    &.folded, &.folded .navbar-brand {
+      width: $aside-folded-width;
+      padding: 0 !important;
+    }
+  }
+}
+
+@media (max-width: $grid-float-breakpoint-max) {
+  .navbar-header {
+    width: 100%;
+  }
+}
+
+@media (min-width: $grid-float-breakpoint) and (max-width: $screen-sm-max - 1) {
+  .navbar-header {
+    width: $aside-folded-width;
+    .navbar-brand {
+      width: $aside-folded-width;
+      padding: 0 !important;
+    }
+  }
+  .app-navbar-nav {
+    padding-left: $aside-folded-width !important;
+  }
+}
+

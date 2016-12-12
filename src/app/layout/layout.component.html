@@ -1,0 +1,7 @@
+<div class="admin-app">
+    <navbar [(leftMenuFolded)]="leftMenuFolded"></navbar>
+    <left-menu [leftMenuFolded]="leftMenuFolded"></left-menu>
+    <div class="app-content" [class.aside-folded]="leftMenuFolded">
+        <router-outlet></router-outlet>
+    </div>
+</div>

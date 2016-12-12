@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <div>
       <b>404: page missing</b>
-      <a routerLink="/home">Home</a>
+      <a routerLink="/web/home">Home</a>
     </div>
   `
 })

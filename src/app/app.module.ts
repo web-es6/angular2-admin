@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutersModule } from './app.routes';
-import { MainComponent } from './component/main';
-import { HomeComponent } from './component/home';
-import { NoContentComponent } from './component/no-content';
-import { WelcomeComponent } from "./component/welcome";
+import { AppRoutesModule } from './app.routes';
 import { AppDirectiveModule } from './directive';
+import { HomeModule } from './modules/home';
+import { LayoutComponent } from './layout';
+import { LeftMenuComponent } from "./layout/left-menu";
+import { NavbarComponent } from "./layout/navbar";
+import { AppComponent } from './app.component';
+import { NoContentComponent } from "./modules/no-content";
 
 @NgModule({
     imports: [
-        AppRoutersModule,
         BrowserModule,
-        AppDirectiveModule
+        AppDirectiveModule,
+        AppRoutesModule,
+        HomeModule,
     ],
     declarations: [
-        MainComponent,
-        HomeComponent,
-        NoContentComponent,
-        WelcomeComponent
+        AppComponent,
+        LayoutComponent,
+        NavbarComponent,
+        LeftMenuComponent,
+        NoContentComponent
     ],
     bootstrap: [
-        MainComponent,
+        LayoutComponent,
     ]
 })
 export class AppModule { }

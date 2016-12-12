@@ -1,0 +1,139 @@
+@import '../../../assets/style/variables';
+// side menu
+
+.nav-aside {
+  width: $aside-width;
+  position: fixed;
+  top: $app-nav-height;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  font-size: 14px;
+  &.folded {
+    width: $aside-folded-width;
+  }
+
+  li {
+    position: relative;
+  }
+
+  > ul.nav {
+    > li {
+      padding: 0 0 0 10px;
+      line-height: $app-aside-nav-height;
+      > .nav-item {
+        display: block;
+        cursor: pointer;
+        transition: background-color .2s ease-in-out 0s;
+        > i {
+          width: $app-aside-nav-height;
+          text-align: center;
+          font-size: 18px;
+        }
+        .icon-expanded {
+          display: none;
+        }
+        .pull-right {
+          margin-right: 10px;
+        }
+      }
+    }
+    > li.separator {
+      height: 2px;
+      margin: 5px 0;
+      background: $bg-black-dk;
+    }
+    > li.active .nav-item, > li > .nav-item:hover {
+      background: $bg-black-dk;
+    }
+    > li > .nav-item.active {
+      background-color: $bg-black-dk;
+      & + .nav-sub {
+        opacity: 1;
+        height: auto !important;
+        overflow: auto;
+        li {
+          margin-left: 0;
+        }
+      }
+      .icon-collapsed {
+        display: none !important;
+      }
+      .icon-expanded {
+        display: inline-block !important;
+      }
+    }
+  }
+
+  &.folded {
+    .hidden-folded, .nav-sub {
+      display: none;
+    }
+    > ul > li {
+      padding: 0 5px;
+      line-height: $app-aside-folded-nav-height;
+
+      .nav-item .fa {
+        width: 50px;
+      }
+    }
+
+    li.focus {
+      background-color: $bg-black-dk;
+      > ul {
+        min-width: 200px;
+        display: block !important;
+        position: absolute;
+        left: $aside-folded-width;
+        top: 0;
+        z-index: 2000;
+        opacity: 1;
+        margin-left: 0;
+        height: auto !important;
+        overflow: auto;
+        > li {
+          margin-left: 0;
+          > a {
+            padding: 0 20px;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav-sub {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background-color: $bg-black-dk;
+
+  li {
+    margin-left: -30px;
+    transition: all 0.2s ease-in-out 0s;
+  }
+
+  a {
+    padding-left: $app-aside-nav-height;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: $grid-float-breakpoint-max) {
+  .nav-aside {
+    display: none;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .nav-aside {
+    width: $aside-folded-width !important;
+    .hidden-folded, .nav-sub {
+      display: none;
+    }
+    > ul.nav > li {
+      line-height: $app-aside-folded-nav-height !important;
+    }
+  }
+}

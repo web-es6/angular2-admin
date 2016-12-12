@@ -1,0 +1,27 @@
+@import '../../assets/style/variables';
+.admin-app {
+  position: relative;
+  width: 100%;
+  padding-top: $app-nav-height;
+  height: auto;
+  min-height: 100%;
+}
+
+.app-content {
+  margin-left: $aside-width;
+  &.aside-folded {
+    margin-left: $aside-folded-width;
+  }
+}
+
+@media (max-width: $grid-float-breakpoint-max) {
+  .app-content {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .app-content {
+    margin-left: $aside-folded-width;
+  }
+}

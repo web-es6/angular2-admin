@@ -1,22 +1,22 @@
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './component/home';
-import { NoContentComponent } from './component/no-content';
-import { WelcomeComponent } from './component/welcome';
+import { LayoutComponent } from './layout';
+import { AppComponent } from './app.component';
+import { NoContentComponent } from './modules/no-content';
+import { HomeComponent } from "./modules/home/home.component";
+
 
 const routes: Routes = [
     {
-        path: 'home',
-        component: HomeComponent,
-        children: [
-            {
-                path: 'welcome',
-                component: WelcomeComponent,
-            }
-        ]
+        path: '',
+        redirectTo: 'web',
+        pathMatch: 'full'
+    }, {
+        path: 'web',
+        component: AppComponent,
     }, {
         path: '**',
-        component: NoContentComponent,
+        component: NoContentComponent
     }
 ];
 
-export const AppRoutersModule = RouterModule.forRoot(routes);
+export const AppRoutesModule = RouterModule.forRoot(routes);
