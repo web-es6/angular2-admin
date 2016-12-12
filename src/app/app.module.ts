@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutesModule } from './app.routes';
+import { appRoutesModule } from './app.routes';
 import { AppDirectiveModule } from './directive';
 import { LayoutComponent } from './layout';
-import { LeftMenuComponent } from "./layout/left-menu";
-import { NavbarComponent } from "./layout/navbar";
+import { LeftMenuComponent } from './layout/left-menu';
+import { NavbarComponent } from './layout/navbar';
 import { AppComponent } from './app.component';
-import { NoContentComponent } from "./modules/no-content";
+import { NoContentComponent } from './modules/no-content';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeModule } from './modules/home';
 import { DepartmentModule } from './modules/department';
 
 @NgModule({
-    imports: [
+    imports     : [
         BrowserModule,
         AppDirectiveModule,
         NgbModule.forRoot(),
-        AppRoutesModule,
+        appRoutesModule,
         HomeModule,
         DepartmentModule,
     ],
@@ -28,8 +28,9 @@ import { DepartmentModule } from './modules/department';
         LeftMenuComponent,
         NoContentComponent
     ],
-    bootstrap: [
+    bootstrap   : [
         LayoutComponent,
     ]
 })
-export class AppModule { }
+export class AppModule {
+}

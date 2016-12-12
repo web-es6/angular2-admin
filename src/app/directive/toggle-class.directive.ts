@@ -10,7 +10,7 @@ export class ToggleClassDirective {
     constructor(private element: ElementRef, private renderer: Renderer) {
     }
 
-    @HostListener("click") onClick() {
+    @HostListener('click') onClick() {
         this.toggled = !this.toggled;
         this.renderer.setElementClass(this.element.nativeElement, this.toggleClass, this.toggled);
     }

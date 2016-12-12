@@ -9,11 +9,11 @@ export class FocusClassDirective {
     constructor(private element: ElementRef, private renderer: Renderer) {
     }
 
-    @HostListener("mouseenter") onMouseenter() {
+    @HostListener('mouseenter') onMouseenter() {
         this.renderer.setElementClass(this.element.nativeElement, this.focusClass, true);
     }
 
-    @HostListener("mouseleave") onMouseleave() {
+    @HostListener('mouseleave') onMouseleave() {
         this.renderer.setElementClass(this.element.nativeElement, this.focusClass, false);
     }
 

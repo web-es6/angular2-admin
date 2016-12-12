@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout';
 import { AppComponent } from './app.component';
 import { NoContentComponent } from './modules/no-content';
-import { HomeComponent } from "./modules/home/home.component";
+import { HomeComponent } from './modules/home/home.component';
 
 
 const routes: Routes = [
@@ -19,4 +19,4 @@ const routes: Routes = [
     }
 ];
 
-export const AppRoutesModule = RouterModule.forRoot(routes);
+export const appRoutesModule = RouterModule.forRoot(routes);

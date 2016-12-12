@@ -8,4 +8,4 @@ const routes: Routes = [
     }
 ];
 
-export const DepartmentRoutesModule = RouterModule.forRoot(routes);
+export const departmentRoutesModule = RouterModule.forRoot(routes);

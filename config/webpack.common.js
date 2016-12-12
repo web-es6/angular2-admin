@@ -34,12 +34,12 @@ module.exports = {
     module: {
         exprContextCritical: false,
         rules              : [
-            // {
-            //     test   : /\.ts$/,
-            //     loader : 'tslint-loader',
-            //     exclude: /(node_modules)/,
-            //     enforce: 'pre'
-            // },
+            {
+                test   : /\.ts$/,
+                loader : 'tslint-loader',
+                exclude: /(node_modules)/,
+                enforce: 'pre'
+            },
             {
                 test   : /\.ts$/,
                 loaders: [
