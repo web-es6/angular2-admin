@@ -63,7 +63,7 @@
             <!-- nabar right -->
             <ul class="nav navbar-nav pull-right hidden-sm-down m-r-15">
                 <li class="nav-item" *ngIf="screenfullEnabled">
-                    <a href="javascript:void(0)" class="btn" (click)="toggleFullScreen()">
+                    <a href="javascript:void(0)" class="btn" (click)="toggleFullScreen()" placement="bottom" ngbTooltip="全屏切换">
                         <i class="fa fa-fw" [ngClass]="{'fa-expand': !isFullScreen, 'fa-compress': isFullScreen}"></i>
                     </a>
                 </li>

@@ -49,14 +49,14 @@ html, body {
   padding: 3px 6px;
 }
 
-.clearfix {
-  &:before,
-  &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
+.app-page-title {
+  border-bottom: 1px solid $color-border-light;
+  padding: 15px;
+  margin-bottom: 15px;
+  backgroundf: $bg-lighter;
+  @include clearfix();
+  .btn {
+    font-size: 16px;
   }
 }
 

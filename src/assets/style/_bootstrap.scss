@@ -1,3 +1,19 @@
 // bootstrap 常量定义
 @import 'variables';
 @import "~bootstrap/scss/bootstrap";
+
+
+// dropdown
+.dropdown.open {
+  .dropdown-menu {
+    margin-top: 0;
+    border-radius: 0;
+    border-color: $color-border-light;
+  }
+}
+
+
+// card
+.card {
+  border-radius: 0;
+}
