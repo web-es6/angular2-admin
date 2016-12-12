@@ -8,6 +8,7 @@ import { NavbarComponent } from "./layout/navbar";
 import { AppComponent } from './app.component';
 import { NoContentComponent } from "./modules/no-content";
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeModule } from './modules/home';
 import { DepartmentModule } from './modules/department';
 
@@ -15,6 +16,7 @@ import { DepartmentModule } from './modules/department';
     imports: [
         BrowserModule,
         AppDirectiveModule,
+        NgbModule.forRoot(),
         AppRoutesModule,
         HomeModule,
         DepartmentModule,

@@ -16,7 +16,7 @@
 
     <div class="clearfix app-navbar-nav hidden-sm-down" [class.aside-folded]="leftMenuFolded">
         <div class="navbar-nav-wrapper">
-            <div class="nav navbar-nav pull-left m-l-15">
+            <div class="nav navbar-nav pull-left m-l-15 m-r-5">
                 <a href="javascript:void(0)" class="btn" (click)="toggleLeftMenuFolded()">
                     <i class="fa fa-fw" [ngClass]="{'fa-indent': leftMenuFolded, 'fa-dedent': !leftMenuFolded}"></i>
                 </a>
@@ -28,17 +28,21 @@
 
             <!-- link and dropdown -->
             <ul class="nav navbar-nav hidden-md-down pull-left">
-                <li class="dropdown nav-item" dropdown>
-                    <a href="javascript:void(0)" class="nav-link dropdown-toggle">
-                        <span>Mega</span>
-                        <span class="caret"></span>
-                    </a>
+                <li class="nav-item" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>Mega</a>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item">Action - 1</button>
+                        <button class="dropdown-item">Another Action</button>
+                        <button class="dropdown-item">Something else is here</button>
+                    </div>
                 </li>
-                <li class="dropdown nav-item" dropdown>
-                    <a href="javascript:void(0)" class="nav-link dropdown-toggle">
-                        <i class="fa fa-fw fa-plus"></i>
-                        <span>New</span> <span class="caret"></span>
-                    </a>
+                <li class="nav-item" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle><i class="fa fa-fw fa-plus"></i>New</a>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item">Action - 2</button>
+                        <button class="dropdown-item">Another Action</button>
+                        <button class="dropdown-item">Something else is here</button>
+                    </div>
                 </li>
             </ul>
             <!-- / link and dropdown -->
@@ -63,23 +67,32 @@
                         <i class="fa fa-fw" [ngClass]="{'fa-expand': !isFullScreen, 'fa-compress': isFullScreen}"></i>
                     </a>
                 </li>
-                <li class="dropdown nav-item" dropdown>
-                    <a href class="dropdown-toggle nav-link" dropdown-toggle>
+                <li class="nav-item" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                         <i class="fa fa-bell-o fa-fw pos-relative">
                             <span class="tag tag-pill tag-primary badge">2</span>
                         </i>
                         <span>&nbsp;Notifications</span>
-
                     </a>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item">Action - 3</button>
+                        <button class="dropdown-item">Another Action</button>
+                        <button class="dropdown-item">Something else is here</button>
+                    </div>
                 </li>
-                <li class="dropdown nav-item" dropdown>
-                    <a href class="dropdown-toggle nav-link" dropdown-toggle>
+                <li class="nav-item" ngbDropdown>
+                    <a href="javascript:void(0)" class="dropdown-toggle nav-link" ngbDropdownToggle>
                             <span class="avatar m-l-5 pull-right">
                                 <img src="./a0.jpg" alt="...">
                                 <i></i>
                               </span>
-                        <span class="hidden-sm">John.Smith</span><b class="caret"></b>
+                        <span class="hidden-sm">John.Smith</span>
                     </a>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-item">Action - 4</button>
+                        <button class="dropdown-item">Another Action</button>
+                        <button class="dropdown-item">Something else is here</button>
+                    </div>
                 </li>
             </ul>
         </div>
