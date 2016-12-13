@@ -11,7 +11,8 @@ import 'rxjs/add/operator/switchMap';
     templateUrl: './department-edit.component.html',
 })
 export class DepartmentEditComponent {
-    department: Department;
+    departments: Department[];
+    department: Department = new Department();
     provinces: RegionCode[] = [];
     cities: RegionCode[] = [];
 
@@ -33,5 +34,6 @@ export class DepartmentEditComponent {
     ngOnInit() {
         this.route.params.switchMap(params => this.departmentService.getById(+ params['id']));
         this.regionCodeService.getProvinces().then(data => this.provinces = data);
+        this.departmentService.getDepartments({}).then(data => this.departments = data.list);
     }
 }

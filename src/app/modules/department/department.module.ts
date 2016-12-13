@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { departmentRoutesModule } from './department.routes';
-import { DepartmentListComponent } from './list/department-list.component';
 import { DepartmentService } from './department.service';
+import { DepartmentListComponent } from './list/department-list.component';
+import { DepartmentEditComponent } from './edit/department-edit.component';
 
 @NgModule({
     imports: [
@@ -15,6 +16,7 @@ import { DepartmentService } from './department.service';
     ],
     declarations: [
         DepartmentListComponent,
+        DepartmentEditComponent,
     ],
     providers: [
         DepartmentService,

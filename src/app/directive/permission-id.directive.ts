@@ -1,9 +1,9 @@
 import { Directive, ElementRef, Input, Renderer } from '@angular/core';
 
 @Directive({
-    selector: '[requirePermission]'
+    selector: '[permissionId]'
 })
-export class RequirePermissionDirective {
+export class PermissionIdDirective {
     @Input() requirePermission: number;
 
     constructor(private element: ElementRef, private renderer: Renderer) {
@@ -11,6 +11,6 @@ export class RequirePermissionDirective {
     }
 
     ngOnInit() {
-        this.renderer.setElementClass(this.element.nativeElement, 'permission-authorized', true);
+        this.renderer.setElementClass(this.element.nativeElement, 'authorized', true);
     }
 }

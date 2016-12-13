@@ -66,17 +66,36 @@ html, body {
     margin: 0 -15px 20px -15px;
     padding: 10px 15px;
     @include clearfix;
+    h4 {
+      line-height: 30px;
+    }
   }
 }
 
-.app-page-title {
+.page-title-block {
   border-bottom: 1px solid $color-border-light;
-  padding: 15px;
-  margin-bottom: 15px;
+  padding: 10px 15px;
   background-color: $bg-lighter;
+  height: 50px;
   @include clearfix;
-  .btn {
-    font-size: 16px;
+
+  h4 {
+    line-height: 30px;
+  }
+}
+
+// 分隔线
+.line {
+  width: 100%;
+  height: 1px;
+  overflow: hidden;
+  font-size: 0;
+  border-bottom: 1px solid #dee5e7;
+  &.line-dashed {
+    border-width: 0;
+    border-bottom-width: 1px;
+    background-color: transparent;
+    border-style: dashed !important;
   }
 }
 
@@ -90,6 +109,17 @@ html, body {
     .m-#{nth($side,1)}-#{$size*5} {
       margin-#{nth($side,2)}: $size*5px;
     }
+  }
+}
+
+@each $size in 0 1 2 3 4 5 6 7 8 9 10 {
+  .m-x-#{$size*5} {
+    margin-left: $size*5px;
+    margin-right: $size*5px;
+  }
+  .m-y-#{$size*5} {
+    margin-top: $size*5px;
+    margin-bottom: $size*5px;
   }
 }
 
@@ -107,9 +137,30 @@ html, body {
   }
 }
 
+@each $size in 0 1 2 3 4 5 6 7 8 9 10 {
+  .p-x-#{$size*5} {
+    padding-left: $size*5px;
+    padding-right: $size*5px;
+  }
+  .p-y-#{$size*5} {
+    padding-top: $size*5px;
+    padding-bottom: $size*5px;
+  }
+}
+
 // border
 @each $side in (a, '') (l, '-left') (r, '-right') (t, '-top') (b, '-bottom') {
   .b-#{nth($side,1)} {
     border#{nth($side,2)}: 1px solid $color-border-light;
   }
+}
+
+.b-x {
+  border-left: 1px solid $color-border-light;
+  border-right: 1px solid $color-border-light;
+}
+
+.b-y {
+  border-top: 1px solid $color-border-light;
+  border-bottom: 1px solid $color-border-light;
 }

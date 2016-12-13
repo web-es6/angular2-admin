@@ -4,7 +4,7 @@ import { HttpParams } from '../../common';
 
 import 'rxjs/add/operator/toPromise';
 import { Department } from './department.model';
-import { JsonPage, JsonMessage } from '../../common';
+import { JsonPage } from '../../common';
 
 @Injectable()
 export class DepartmentService {
@@ -29,11 +29,11 @@ export class DepartmentService {
             });
     }
 
-    getById(id: number): Promise<JsonMessage<Department>> {
+    getById(id: number): Promise<Department> {
         return Promise.reject('TODO');
     }
 
-    save(department: Department): Promise<JsonMessage<Department>> {
+    save(department: Department): Promise<Department> {
         return Promise.reject('TODO');
     }
 }

@@ -15,7 +15,7 @@ export class Department {
     rightOrder: number;
     deleted: boolean;
 
-    constructor(data: any) {
+    constructor(data: any = {}) {
         this.id = data.id;
         this.orgCode = data.orgCode;
         this.rootCode = data.rootCode;
