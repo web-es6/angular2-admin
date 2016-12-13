@@ -10,13 +10,13 @@
         <div class="col-sm-3">
             <div class="input-group">
                 <label class="input-group-addon">名称</label>
-                <input type="text" [(ngModel)]="queryParams.name" class="form-control">
+                <input type="text" [(ngModel)]="queryParams.nameLK" class="form-control">
             </div>
         </div>
         <div class="col-sm-3">
             <div class="input-group">
                 <label class="input-group-addon">机构码</label>
-                <input type="text" [(ngModel)]="queryParams.code" class="form-control">
+                <input type="text" [(ngModel)]="queryParams.orgCode" class="form-control">
             </div>
         </div>
         <div class="col-sm-3">
@@ -39,7 +39,57 @@
     <div class="row m-t-10">
         <div class="col-sm-12 text-xs-right">
             <button class="btn btn-warning" (click)="resetQueryParams()">重置</button>
-            <button class="btn btn-primary m-l-5">查询</button>
+            <button class="btn btn-primary m-l-5" (click)="getDepartments()">查询</button>
+        </div>
+    </div>
+</div>
+
+<div class="card card-block no-border">
+    <div class="table-responsive">
+        <table class="table table-hover table-sm">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>名称</th>
+                <th>机构码</th>
+                <th>顶级机构</th>
+                <th>省</th>
+                <th>市</th>
+                <th>创建时间</th>
+                <th>创建人</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let department of departments; let i = index" data-id="{{department.id}}">
+                <th>{{i + 1}}</th>
+                <td>{{department.name}}</td>
+                <td>{{department.orgCode}}</td>
+                <td>{{department.rootCode}}</td>
+                <td>{{department.province}}</td>
+                <td>{{department.city}}</td>
+                <td>{{department.createTime}}</td>
+                <td>{{department.createUsername}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-fluid">
+        <div class="col-sm-3">
+            <div class="input-group">
+                <label class="input-group-addon">每页大小</label>
+                <select [(ngModel)]="pagination.pageSize" class="form-control" style="width: 60px;">
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <option>50</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <ngb-pagination [collectionSize]="pagination.totalSize" [(page)]="pagination.page"
+                            [pageSize]="pagination.pageSize" [maxSize]="5" [rotate]="true"
+                            [boundaryLinks]="true" class="pull-right" (pageChange)="getDepartments()"></ngb-pagination>
         </div>
     </div>
 </div>

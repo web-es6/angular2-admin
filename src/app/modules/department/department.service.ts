@@ -4,6 +4,7 @@ import * as formUrlencoded from 'form-urlencoded';
 
 import 'rxjs/add/operator/toPromise';
 import { Department } from './department.model';
+import { JsonPage } from '../../json-page.model';
 
 @Injectable()
 export class DepartmentService {
@@ -13,7 +14,7 @@ export class DepartmentService {
 
     }
 
-    getDepartments(query: any): Promise<Department[]> {
+    getDepartments(query: any): Promise<JsonPage<Department>> {
         let params = new URLSearchParams();
         for (let key in query) {
             if (query.hasOwnProperty(key)) {
@@ -27,9 +28,9 @@ export class DepartmentService {
                 if (!json.result) {
                     console.log(json);
                     Promise.reject(json.message || json.toString());
-                    return [];
+                    return new JsonPage();
                 } else {
-                    return json.list as Department[];
+                    return new JsonPage(json);
                 }
             });
     }

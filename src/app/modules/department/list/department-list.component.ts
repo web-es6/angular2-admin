@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DepartmentService } from '../department.service';
 import { RegionCodeService, RegionCode } from '../../region-code';
+import { Department } from '../department.model';
 
 @Component({
     selector: 'department-list',
@@ -9,8 +10,10 @@ import { RegionCodeService, RegionCode } from '../../region-code';
 })
 export class DepartmentListComponent {
     queryParams: any = {};
+    departments: Department[] = [];
     provinces: RegionCode[] = [];
     cities: RegionCode[] = [];
+    pagination = {page: 1, pageSize: 20, totalSize: 0};
 
     constructor(private departmentService: DepartmentService,
                 private regionCodeService: RegionCodeService) {
@@ -26,9 +29,20 @@ export class DepartmentListComponent {
         this.queryParams = {};
     }
 
-    ngOnInit() {
-        this.departmentService.getDepartments({}).then(data => console.log(data));
+    getDepartments() {
+        let params = {
+            pageNo: this.pagination.page,
+            pageSize: this.pagination.pageSize,
+        };
 
+        this.departmentService.getDepartments(params).then(data => {
+            this.departments = data.list;
+            this.pagination.totalSize = data.totalElements;
+        });
+    }
+
+    ngOnInit() {
+        this.getDepartments();
         this.regionCodeService.getProvinces().then(data => this.provinces = data);
     }
 }

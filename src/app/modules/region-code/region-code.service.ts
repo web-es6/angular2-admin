@@ -43,6 +43,7 @@ export class RegionCodeService {
 
         let params: URLSearchParams = new URLSearchParams();
         params.set('parentCode', provinceCode.toString());
+        params.set('pageSize', '50');
         return this.http.get(this.regionCodeUrl, {search: params}).toPromise()
             .then(response => {
                 let json = response.json();
