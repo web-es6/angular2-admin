@@ -4,7 +4,7 @@ import * as formUrlencoded from 'form-urlencoded';
 
 import 'rxjs/add/operator/toPromise';
 import { Department } from './department.model';
-import { JsonPage } from '../../json-page.model';
+import { JsonPage } from '../../common';
 
 @Injectable()
 export class DepartmentService {

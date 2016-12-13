@@ -31,6 +31,7 @@ export class DepartmentListComponent {
 
     getDepartments() {
         let params = {
+            ...this.queryParams,
             pageNo: this.pagination.page,
             pageSize: this.pagination.pageSize,
         };
