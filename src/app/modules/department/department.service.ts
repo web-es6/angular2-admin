@@ -4,7 +4,7 @@ import { HttpParams } from '../../common';
 
 import 'rxjs/add/operator/toPromise';
 import { Department } from './department.model';
-import { JsonPage } from '../../common';
+import { JsonPage, JsonMessage } from '../../common';
 
 @Injectable()
 export class DepartmentService {
@@ -15,7 +15,8 @@ export class DepartmentService {
     }
 
     getDepartments(query: any): Promise<JsonPage<Department>> {
-        return this.http.get(this.departmentUrl, {search: HttpParams.toUrlParams(query)}).toPromise()
+        return this.http.get(this.departmentUrl, {search: HttpParams.toUrlParams(query)})
+            .toPromise()
             .then(response => {
                 let json = response.json();
                 if (!json.result) {
@@ -26,5 +27,13 @@ export class DepartmentService {
                     return new JsonPage(json);
                 }
             });
+    }
+
+    getById(id: number): Promise<JsonMessage<Department>> {
+        return Promise.reject('TODO');
+    }
+
+    save(department: Department): Promise<JsonMessage<Department>> {
+        return Promise.reject('TODO');
     }
 }
