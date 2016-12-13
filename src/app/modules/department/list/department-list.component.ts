@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DepartmentService } from '../department.service';
 
 @Component({
     selector: 'department-list',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class DepartmentListComponent {
 
+    constructor(private departmentService: DepartmentService) {
+
+    }
+
+    ngOnInit() {
+        this.departmentService.getDepartments({}).then(data => console.log(data));
+    }
 }

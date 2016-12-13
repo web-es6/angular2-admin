@@ -54,7 +54,7 @@ module.exports = function() {
             },
             proxy             : {
                 '/api/*': {
-                    target: 'http://localhost:8000',
+                    target: 'http://114.55.224.51:12345',
                     secure: false
                 }
             },

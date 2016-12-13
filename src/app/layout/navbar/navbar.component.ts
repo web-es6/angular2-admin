@@ -14,7 +14,7 @@ export class NavbarComponent {
     isFullScreen: boolean = false;
 
     constructor() {
-        console.log(screenfull);
+
     }
 
     toggleLeftMenuFolded() {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule }    from '@angular/http';
 import { appRoutesModule } from './app.routes';
 import { AppDirectiveModule } from './directive';
 import { LayoutComponent } from './layout';
@@ -15,6 +16,7 @@ import { DepartmentModule } from './modules/department';
 @NgModule({
     imports     : [
         BrowserModule,
+        HttpModule,
         AppDirectiveModule,
         NgbModule.forRoot(),
         appRoutesModule,
