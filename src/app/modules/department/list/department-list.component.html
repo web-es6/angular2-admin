@@ -1,11 +1,12 @@
-<div class="p-10 clearfix">
-    <h4 class="m-0 pull-left"><i class="fa fa-sitemap text-primary m-r-10"></i>部门管理</h4>
-    <div class="pull-right">
-        <span class="btn btn-primary"><i class="fa fa-plus"></i> 添加部门</span>
-    </div>
-</div>
 
-<div class="card card-block no-border">
+
+<div class="search-block">
+    <div class="search-header">
+        <h4 class="m-0 pull-left" style="line-height: 33px;"><i class="fa fa-sitemap text-primary m-r-10"></i>部门管理</h4>
+        <div class="pull-right">
+            <span class="btn btn-primary"><i class="fa fa-plus"></i> 添加部门</span>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-3">
             <div class="input-group">
@@ -36,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="row m-t-10">
+    <div class="row m-t-10 m-b-10">
         <div class="col-sm-12 text-xs-right">
             <button class="btn btn-warning" (click)="resetQueryParams()">重置</button>
             <button class="btn btn-primary m-l-5" (click)="getDepartments()">查询</button>
@@ -50,6 +51,7 @@
             <thead>
             <tr>
                 <th>#</th>
+                <th>操作</th>
                 <th>名称</th>
                 <th>机构码</th>
                 <th>顶级机构</th>
@@ -62,6 +64,17 @@
             <tbody>
             <tr *ngFor="let department of departments; let i = index" data-id="{{department.id}}">
                 <th>{{i + 1}}</th>
+                <td>
+                    <div ngbDropdown class="d-inline-block">
+                        <button class="btn btn-sm btn-outline-primary" ngbDropdownToggle>
+                            <i class="fa fa-pencil">&nbsp;</i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item">编辑</button>
+                            <button class="dropdown-item">删除</button>
+                        </div>
+                    </div>
+                </td>
                 <td>{{department.name}}</td>
                 <td>{{department.orgCode}}</td>
                 <td>{{department.rootCode}}</td>
@@ -73,7 +86,7 @@
             </tbody>
         </table>
     </div>
-    <div class="container-fluid">
+    <div class="row">
         <div class="col-sm-3">
             <div class="input-group">
                 <label class="input-group-addon">每页大小</label>

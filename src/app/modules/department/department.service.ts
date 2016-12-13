@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
-import * as formUrlencoded from 'form-urlencoded';
+import { Http } from '@angular/http';
+import { HttpParams } from '../../common';
 
 import 'rxjs/add/operator/toPromise';
 import { Department } from './department.model';
@@ -15,14 +15,7 @@ export class DepartmentService {
     }
 
     getDepartments(query: any): Promise<JsonPage<Department>> {
-        let params = new URLSearchParams();
-        for (let key in query) {
-            if (query.hasOwnProperty(key)) {
-                params.set(key, query[key]);
-            }
-        }
-
-        return this.http.get(this.departmentUrl, {search: params}).toPromise()
+        return this.http.get(this.departmentUrl, {search: HttpParams.toUrlParams(query)}).toPromise()
             .then(response => {
                 let json = response.json();
                 if (!json.result) {

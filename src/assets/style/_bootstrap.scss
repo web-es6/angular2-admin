@@ -1,5 +1,8 @@
 // bootstrap 常量定义
 @import 'variables';
+$enable-shadows:                        true;
+$enable-gradients:                      true;
+$enable-transitions:                    true;
 $font-size-root:                        14px;
 $input-border-radius:                   0;
 $input-border-radius-lg:                0;
@@ -13,7 +16,6 @@ $custom-select-border-radius:           0;
 .dropdown.open {
   .dropdown-menu {
     margin-top: 0;
-    border-color: $color-border-light;
   }
 }
 
@@ -35,6 +37,14 @@ select {
   padding: 0.4rem;
 }
 
+.table-responsive {
+  overflow: visible;
+}
+
 .pagination {
   margin: 0;
+}
+
+.dropdown-menu {
+  border-radius: 0;
 }
