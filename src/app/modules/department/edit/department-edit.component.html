@@ -7,7 +7,7 @@
 <div class="container-fluid b-b bg-white">
     <form class="form-horizontal">
         <div class="form-group container-fluid p-y-15 m-0">
-            <label class="col-sm-2 text-sm-right">上级部门</label>
+            <label class="col-sm-2 control-label">上级部门</label>
             <div class="col-sm-10">
                 <select class="form-control">
                     <option *ngFor="let department of departments" [value]="department.id">{{department.name}}</option>
@@ -16,14 +16,14 @@
         </div>
         <div class="line line-dashed"></div>
         <div class="form-group container-fluid p-y-15 m-0">
-            <label class="col-sm-2 text-sm-right">部门名称</label>
+            <label class="col-sm-2 control-label">部门名称</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control">
             </div>
         </div>
         <div class="line line-dashed"></div>
         <div class="form-group container-fluid p-y-15 m-0">
-            <label class="col-sm-2 text-sm-right">省</label>
+            <label class="col-sm-2 control-label">省</label>
             <div class="col-sm-10">
                 <select [(ngModel)]="department.provinceCode" (change)="onProvinceChange()" name="provinceCode" class="form-control">
                     <option *ngFor="let province of provinces" [value]="province.code">{{province.name}}</option>
@@ -32,7 +32,7 @@
         </div>
         <div class="line line-dashed"></div>
         <div class="form-group container-fluid p-y-15 m-0">
-            <label class="col-sm-2 text-sm-right">市</label>
+            <label class="col-sm-2 control-label">市</label>
             <div class="col-sm-10">
                 <select [(ngModel)]="department.cityCode" name="cityCode" class="form-control">
                     <option *ngFor="let city of cities" [value]="city.code">{{city.name}}</option>
@@ -41,7 +41,7 @@
         </div>
         <div class="line line-dashed"></div>
         <div class="form-group container-fluid p-y-15 m-0">
-            <label class="col-sm-2 text-sm-right">地址</label>
+            <label class="col-sm-2 control-label">地址</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control">
             </div>
