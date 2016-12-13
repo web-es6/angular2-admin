@@ -16,7 +16,10 @@ export class RegionCodeService {
 
     getProvinces(): Promise<RegionCode[]> {
         if (!this.provinces || !this.provinces.length) {
-            return this.http.get(this.regionCodeUrl).toPromise()
+            let params: URLSearchParams = new URLSearchParams();
+            params.set('type', '1');
+            params.set('pageSize', '50');
+            return this.http.get(this.regionCodeUrl, {search: params}).toPromise()
                 .then(response => {
                     let json = response.json();
                     if (!json.result) {
@@ -34,8 +37,8 @@ export class RegionCodeService {
     }
 
     getCities(provinceCode: number): Promise<RegionCode[]> {
-        if (this.cities[provinceCode]) {
-            return Promise.resolve(this.cities[provinceCode]);
+        if (this.cities.get(provinceCode)) {
+            return Promise.resolve(this.cities.get(provinceCode));
         }
 
         let params: URLSearchParams = new URLSearchParams();

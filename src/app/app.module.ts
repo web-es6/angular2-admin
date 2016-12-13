@@ -11,6 +11,7 @@ import { NoContentComponent } from './modules/no-content';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeModule } from './modules/home';
+import { RegionCodeModule } from './modules/region-code';
 import { DepartmentModule } from './modules/department';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DepartmentModule } from './modules/department';
         NgbModule.forRoot(),
         appRoutesModule,
         HomeModule,
+        RegionCodeModule,
         DepartmentModule,
     ],
     declarations: [

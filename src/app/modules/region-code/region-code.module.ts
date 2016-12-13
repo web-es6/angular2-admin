@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RegionCodeService } from './region-code.service';
 
 @NgModule({
-    declarations: [
+    providers: [
         RegionCodeService
     ]
 })
-export default class RegionCodeModule {
+export class RegionCodeModule {
 
 }

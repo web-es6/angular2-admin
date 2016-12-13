@@ -1,12 +1,45 @@
-<div class="app-page-title">
+<div class="p-10 clearfix">
     <h4 class="m-0 pull-left"><i class="fa fa-sitemap text-primary m-r-10"></i>部门管理</h4>
     <div class="pull-right">
-        <span class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> 添加部门</span>
+        <span class="btn btn-primary"><i class="fa fa-plus"></i> 添加部门</span>
     </div>
 </div>
 
 <div class="card card-block no-border">
-    <h3 class="card-title">Special title treatment</h3>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="input-group">
+                <label class="input-group-addon">名称</label>
+                <input type="text" [(ngModel)]="queryParams.name" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group">
+                <label class="input-group-addon">机构码</label>
+                <input type="text" [(ngModel)]="queryParams.code" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group">
+                <label class="input-group-addon">省</label>
+                <select [(ngModel)]="queryParams.provinceCode" (change)="onProvinceChange()" class="form-control">
+                    <option *ngFor="let province of provinces" [value]="province.code">{{province.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group">
+                <label class="input-group-addon">市</label>
+                <select [(ngModel)]="queryParams.cityCode" class="form-control">
+                    <option *ngFor="let city of cities" [value]="city.code">{{city.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row m-t-10">
+        <div class="col-sm-12 text-xs-right">
+            <button class="btn btn-warning" (click)="resetQueryParams()">重置</button>
+            <button class="btn btn-primary m-l-5">查询</button>
+        </div>
+    </div>
 </div>
