@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { DepartmentService } from '../department.service';
 import { RegionCodeService, RegionCode } from '../../region-code';
 import { Department } from '../department.model';
-import 'rxjs/add/operator/switchMap';
 
 @Component({
     selector: 'department-edit',

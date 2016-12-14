@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpParams } from '../../common';
 
-import 'rxjs/add/operator/toPromise';
 import { Department } from './department.model';
 import { JsonPage } from '../../common';
 

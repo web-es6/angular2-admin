@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
 import { RegionCode } from './region-code.model';
 
 @Injectable()
